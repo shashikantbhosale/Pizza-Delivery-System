@@ -1,0 +1,18 @@
+
+
+  
+<div class="row" style="flex-wrap: inherit;">
+    <div  *ngFor="let order of orders" class="card" style="width: 30rem;margin: 2%;">
+        <img src="{{order.OrderItem[0].Image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 15px;">{{order.OrderItem[0].Name}}</h5>
+          <p class="card-text" style="font-size: 12px;margin-bottom: 0.5px;">{{order.OrderItem[0].Description}}</p>
+          <p style="margin-bottom: 0.5px;"><b>Order Total</b> : ₹{{order.OrderItem[0].Totalprice}}</p>
+          <p style="margin-bottom: 0.5px;"><b>Order Id</b> : {{order.OrderItem[0].Id}}</p>
+          <p style="margin-bottom: 0.5px;"> <b>Status</b> :  {{order.Status}}</p>
+          <p style="margin-bottom: 0.5px;"><b>Date</b> : {{order.OrderDate}}</p>
+          <p style="margin-bottom: 0.5px;"><b>Delivery Address</b> : {{order.DeliveryAddress}}</p>
+          
+        </div>
+      </div>
+      </div>

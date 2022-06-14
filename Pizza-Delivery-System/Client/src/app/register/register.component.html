@@ -1,0 +1,43 @@
+<body>
+<div class="signup-form">
+    <form #regForm="ngForm" class="text-center p-2"
+    (submit)="register(regForm.valid)" novalidate>
+		<h2>Register</h2>
+		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        <div class="alert alert-danger" role="alert" *ngIf="(userDetails.FirstName== '' || userDetails.LastName=='' || userDetails.Email=='' || userDetails.Password=='' || confirmPassword=='') && submitted">
+            Inputs cannot be left blank
+          </div>
+        <div class="form-group">
+			<input type="text" class="form-control"   [(ngModel)]="userDetails.FirstName" name="fname"
+            #fname="ngModel" placeholder="Enter first Name" required>
+			        	
+        </div>
+        <div class="form-group">
+        	<input type="text" class="form-control" [(ngModel)]="userDetails.LastName" name="lname"
+            #lname="ngModel" placeholder="Enter last Name" required>
+        </div>
+        <div class="form-group">
+        	<input type="email" class="form-control" [(ngModel)]="userDetails.Email" name="eml"
+            #eml="ngModel" placeholder="Enter email" required>
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control"  [(ngModel)]="userDetails.Password" name="pass"
+            #pass="ngModel" placeholder="Enter password" required>
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" [(ngModel)]="confirmPassword" name="cpass"
+            #cpass="ngModel" placeholder="Enter password" required>
+            <span class="text-danger small" *ngIf="userDetails.Password != confirmPassword && submitted">
+                Password does not match
+              </span>
+        </div>        
+        <div class="form-group">
+			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+		</div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+        </div>
+    </form>
+	<div class="text-center">Already have an account? <a routerLink="/login" >Sign in</a></div>
+</div>
+</body>

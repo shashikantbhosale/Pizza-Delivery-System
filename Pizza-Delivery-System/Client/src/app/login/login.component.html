@@ -1,0 +1,26 @@
+<body>
+  <div class="signup-form">
+      <form #loginForm="ngForm" class="text-center p-2"
+      (submit)="login(loginForm.valid)" novalidate>
+      <h2>Login</h2>
+      <div class="alert alert-danger" role="alert" *ngIf="(username== '' || password=='') && validate">
+        Username and password cannot be left blank
+      </div>
+          <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="username" name="usrnm"
+        #usrnm="ngModel" placeholder="Enter Username" required>
+                  
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control"[(ngModel)]="password" name="pwd"
+            #pwd="ngModel" placeholder="Enter password" required>
+          </div>
+         
+     
+      <div class="form-group">
+              <button type="submit" class="btn btn-success btn-lg btn-block">Sign in</button>
+          </div>
+      </form>
+    <div class="text-center">Don't have an account? <a routerLink="/regitser" >Register Now</a></div>
+  </div>
+  </body>
